@@ -16,6 +16,7 @@ export default function AllTraining() {
     []
   );
   const [isActive, setIsActive] = useState(false);
+  const [toDisplayTraining, setToDisplayTraining] = useState({})
   const location = useLocation();
 
   useEffect(() => {
@@ -52,17 +53,19 @@ export default function AllTraining() {
                 className="book"
                 onClick={() => {
                   setIsActive(true);
+                  setToDisplayTraining(training):
                 }}
               >
                 View Details
               </button>
-              {isActive === true ? (
-                <ViewDetails training={training} setIsActive={setIsActive} />
-              ) : null}
+              
             </div>
           </>
         );
       })}
+      {isActive === true ? (
+                <ViewDetails training={toDisplayTraining} setIsActive={setIsActive} />
+              ) : null}
     </div>
   );
 }
